@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapter.ItemRowHolder> {
 
-    private ArrayList<Post> dataList;
+    private ArrayList<CategoryModel> dataList;
     private Context mContext;
 
     public PostRecyclerAdapter(Context context, ArrayList<CategoryModel> dataList) {
