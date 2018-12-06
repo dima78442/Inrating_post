@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Inrating_post</string>
+    <string name="title_activity_post_">post_Activity</string>
 </resources>
