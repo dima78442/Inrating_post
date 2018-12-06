@@ -10,16 +10,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dima.inrating_post.R;
-import com.dima.inrating_post.repository.Model.Model.Model;
+import com.dima.inrating_post.repository.Model.Model.Datum;
 
 import java.util.ArrayList;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
-    private ArrayList<Model> itemsList;
+    private ArrayList<Datum> itemsList;
     private Context mContext;
 
-    public SectionListDataAdapter(Context context, ArrayList<Model> itemsList) {
+    public SectionListDataAdapter(Context context, ArrayList<Datum> itemsList) {
         this.itemsList = itemsList;
         this.mContext = context;
     }
@@ -34,17 +34,11 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     @Override
     public void onBindViewHolder(SingleItemRowHolder holder, int i) {
 
-        Model singleItem = itemsList.get(i);
+        Datum datum = itemsList.get(i);
 
-        holder.tvTitle.setText(singleItem.getData().get(0).getGender());
+        holder.tvTitle.setText(datum.getName());
+        PostActivityPresenter.imageDownload(datum.getAvatarImage().getUrl(),holder.itemImage);
 
-
-       /* Glide.with(mContext)
-                .load(feedItem.getImageURL())
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .centerCrop()
-                .error(R.drawable.bg)
-                .into(feedListRowHolder.thumbView);*/
     }
 
     @Override
@@ -55,7 +49,6 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 
         protected TextView tvTitle;
-
         protected ImageView itemImage;
 
 
@@ -70,7 +63,6 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
-
                 }
             });
 

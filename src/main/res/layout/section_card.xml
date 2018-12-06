@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    android:background="?android:selectableItemBackground"
+    android:background="@drawable/nbg"
     android:orientation="vertical"
     android:padding="5dp">
 
@@ -20,28 +20,15 @@
             android:layout_height="30dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:src="@android:drawable/arrow_down_float" />
+            android:src="@drawable/baseline_arrow_forward_black_18dp" />
 
         <TextView
             android:id="@+id/itemTitle4"
-            android:layout_width="76dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
+            android:layout_width="43dp"
+            android:layout_height="36dp"
             android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginEnd="47dp"
-            android:text="Sample title"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/itemTitle3"
-            android:layout_width="22dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginEnd="191dp"
+            android:layout_toStartOf="@+id/imageView2"
             android:text="Sample title"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
@@ -50,23 +37,21 @@
             android:id="@+id/imageView"
             android:layout_width="33dp"
             android:layout_height="30dp"
+
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="11dp"
-            android:src="@android:drawable/arrow_down_float" />
+             />
 
         <TextView
             android:id="@+id/itemTitle"
-            android:layout_width="85dp"
+            android:layout_width="157dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="61dp"
-            android:layout_marginRight="86dp"
-            android:layout_marginStart="61dp"
 
+            android:layout_marginStart="63dp"
             android:text="Sample title"
             android:textColor="@android:color/black"
             android:textSize="18sp" />

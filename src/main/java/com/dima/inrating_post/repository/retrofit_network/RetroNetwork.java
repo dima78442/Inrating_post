@@ -20,8 +20,8 @@ public class RetroNetwork {
 
     private String BASE_URL = "https://api.inrating.top/v1/";
 
-    public static String id = "806";
-    public static String slug = "TJOY3curo0M2symKZTwBBoPiwzIgjFSc";
+    public static String id = "254";
+    public static String slug = "59b674fc2647b";
 
     private static String token =
             "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmNGU5ZDA1MzU3MDI3MmFlMGZhZTMzM2Y4ZTY4" +

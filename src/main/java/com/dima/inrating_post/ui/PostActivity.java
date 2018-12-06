@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 public class PostActivity extends AppCompatActivity implements mvpView{
 
-    private Post post;
     private ArrayList<CategoryModel> categoryModels = new ArrayList<CategoryModel>();
     private ArrayList<Datum> likers = new ArrayList<Datum>();
     private ArrayList<Datum> commentators = new ArrayList<Datum>();
@@ -30,16 +29,15 @@ public class PostActivity extends AppCompatActivity implements mvpView{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_);
+
         createCategories();
         initPresenter();
+
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
-
-        adapter = new PostRecyclerAdapter(this, categoryModels);
-
+        adapter = new PostRecyclerAdapter(this, categoryModels,likers,commentators,mentions,reposters);
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-
         my_recycler_view.setAdapter(adapter);
 
 
@@ -77,7 +75,7 @@ public class PostActivity extends AppCompatActivity implements mvpView{
         categoryModels.get(0).setNumber(post.getViewsCount());
         categoryModels.get(1).setNumber(post.getLikesCount());
         categoryModels.get(2).setNumber(post.getCommentsCount());
-        categoryModels.get(3).setNumber(1);
+        categoryModels.get(3).setNumber(0);
         categoryModels.get(4).setNumber(post.getRepostsCount());
         categoryModels.get(5).setNumber(post.getBookmarksCount());
     }
@@ -105,6 +103,7 @@ public class PostActivity extends AppCompatActivity implements mvpView{
     @Override
     public void updateUi() {
         adapter.notifyDataSetChanged();
+        adapter.itemListDataAdapter.notifyDataSetChanged();
     }
 
     @Override
