@@ -66,7 +66,7 @@
             android:layout_marginLeft="61dp"
             android:layout_marginRight="86dp"
             android:layout_marginStart="61dp"
-            android:layout_toLeftOf="@+id/btnMore"
+
             android:text="Sample title"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
