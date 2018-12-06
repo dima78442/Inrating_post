@@ -69,6 +69,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             case 0:
                 itemListDataAdapter = new SectionListDataAdapter(mContext,null);
                 itemRowHolder.section_image.setBackground(mContext.getDrawable(R.drawable.baseline_visibility_black_18dp));
+                itemRowHolder.title_expand_num.setText("");
                 break;
             case 1:
                 itemListDataAdapter = new SectionListDataAdapter(mContext,likers);
@@ -90,6 +91,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             case 5:
                 itemListDataAdapter = new SectionListDataAdapter(mContext,null);
                 itemRowHolder.section_image.setBackground(mContext.getDrawable(R.drawable.baseline_collections_bookmark_black_18dp));
+                itemRowHolder.title_expand_num.setText("");
                 break;
         }
     }
