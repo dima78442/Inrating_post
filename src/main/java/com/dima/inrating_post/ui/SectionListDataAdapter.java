@@ -14,6 +14,9 @@ import com.dima.inrating_post.repository.Model.Model.Datum;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
 
     private ArrayList<Datum> itemsList;
@@ -48,16 +51,16 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
 
     public class SingleItemRowHolder extends RecyclerView.ViewHolder {
 
-        protected TextView tvTitle;
+        @BindView(R.id.tvTitle)
+        TextView tvTitle;
+        @BindView(R.id.itemImage)
         protected ImageView itemImage;
 
 
         public SingleItemRowHolder(View view) {
             super(view);
 
-            this.tvTitle = (TextView) view.findViewById(R.id.tvTitle);
-            this.itemImage = (ImageView) view.findViewById(R.id.itemImage);
-
+            ButterKnife.bind(this,view);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

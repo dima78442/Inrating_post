@@ -15,6 +15,9 @@ import com.dima.inrating_post.repository.Model.Model.Datum;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapter.ItemRowHolder> {
 
     private ArrayList<CategoryModel> dataList;
@@ -78,6 +81,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
             case 3:
                 itemListDataAdapter = new SectionListDataAdapter(mContext,mentions);
                 itemRowHolder.section_image.setBackground(mContext.getDrawable(R.drawable.baseline_person_outline_black_18dp));
+                itemRowHolder.title_expand_num.setText(String.valueOf(mentions.size()));
                 break;
             case 4:
                 itemListDataAdapter = new SectionListDataAdapter(mContext,reposters);
@@ -97,22 +101,22 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
 
     public class ItemRowHolder extends RecyclerView.ViewHolder {
 
-        protected TextView title_section;
-        protected TextView title_expand_num;
-        protected ImageView section_image;
-        protected ImageView expand_image;
-        protected RecyclerView inner_recycler;
+        @BindView(R.id.itemTitle)
+        TextView title_section;
+        @BindView(R.id.itemTitle4)
+        TextView title_expand_num;
+        @BindView(R.id.imageView)
+        ImageView section_image;
+        @BindView(R.id.imageView2)
+        ImageView expand_image;
+        @BindView(R.id.recycler_view_list)
+        RecyclerView inner_recycler;
 
 
 
         public ItemRowHolder(View view) {
             super(view);
-
-            this.title_section = (TextView) view.findViewById(R.id.itemTitle);
-            this.title_expand_num = (TextView) view.findViewById(R.id.itemTitle4);
-            this.inner_recycler = (RecyclerView) view.findViewById(R.id.recycler_view_list);
-            this.section_image = (ImageView)view.findViewById(R.id.imageView);
-            this.expand_image = (ImageView)view.findViewById(R.id.imageView2);
+            ButterKnife.bind(this,view);
 
         }
 

@@ -14,26 +14,33 @@ import com.dima.inrating_post.repository.retrofit_network.RetroNetwork;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PostActivity extends AppCompatActivity implements mvpView{
 
     private ArrayList<CategoryModel> categoryModels = new ArrayList<CategoryModel>();
+
     private ArrayList<Datum> likers = new ArrayList<Datum>();
     private ArrayList<Datum> commentators = new ArrayList<Datum>();
     private ArrayList<Datum> reposters = new ArrayList<Datum>();
     private ArrayList<Datum> mentions = new ArrayList<Datum>();
+
     private PostRecyclerAdapter adapter;
     private PostActivityPresenter presenter;
 
+    @BindView(R.id.my_recycler_view)
+    RecyclerView my_recycler_view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_);
+        ButterKnife.bind(this);
 
         createCategories();
         initPresenter();
 
-        RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         my_recycler_view.setHasFixedSize(true);
         adapter = new PostRecyclerAdapter(this, categoryModels,likers,commentators,mentions,reposters);
