@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class CategoryModel {
     private String name;
-    private int number;
+    private int number = 0;
     ArrayList<Datum> list;
 
     public String getName() {

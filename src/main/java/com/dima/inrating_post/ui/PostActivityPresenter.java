@@ -20,7 +20,7 @@ public class PostActivityPresenter {
     private Repository repository;
 
     public PostActivityPresenter(Repository repository) {
-        this.repository = repository
+        this.repository = repository;
     }
 
     public void onAttach(mvpView mvpView) {
@@ -36,7 +36,7 @@ public class PostActivityPresenter {
     }
 
 
-    public Post getPost(String slug){
+    public void getPost(String slug){
         repository.getPost(slug).enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {

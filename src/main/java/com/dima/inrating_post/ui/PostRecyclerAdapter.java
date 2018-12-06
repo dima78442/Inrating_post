@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.dima.inrating_post.R;
 import com.dima.inrating_post.repository.Model.CategoryModel;
-import com.dima.inrating_post.repository.Model.PostModel.Post;
 
 import java.util.ArrayList;
 
@@ -34,11 +33,13 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
     @Override
     public void onBindViewHolder(ItemRowHolder itemRowHolder, int i) {
 
-        final String sectionName = dataList.get(i).getTitle();
-
-        //ArrayList singleSectionItems = dataList.get(i).getAllItemsInSection();
+        final String sectionName = dataList.get(i).getName();
+        final int number = dataList.get(i).getNumber();
+        int expand = number - 5  > 0 ? number - 5 : 0;
 
         itemRowHolder.title_section.setText(sectionName);
+        itemRowHolder.title_num.setText(String.valueOf(number));
+        itemRowHolder.title_expand_num.setText(String.valueOf(expand));
 
         /*SectionListDataAdapter itemListDataAdapter = new SectionListDataAdapter(mContext, singleSectionItems);
 
