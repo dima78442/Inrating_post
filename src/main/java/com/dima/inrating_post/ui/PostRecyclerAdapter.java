@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dima.inrating_post.R;
+import com.dima.inrating_post.repository.Model.CategoryModel;
 import com.dima.inrating_post.repository.Model.PostModel.Post;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<PostRecyclerAdapte
     private ArrayList<Post> dataList;
     private Context mContext;
 
-    public PostRecyclerAdapter(Context context, ArrayList<Post> dataList) {
+    public PostRecyclerAdapter(Context context, ArrayList<CategoryModel> dataList) {
         this.dataList = dataList;
         mContext = context;
     }
