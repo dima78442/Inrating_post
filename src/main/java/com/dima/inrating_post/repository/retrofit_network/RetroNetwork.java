@@ -1,5 +1,6 @@
 package com.dima.inrating_post.repository.retrofit_network;
 
+import com.dima.inrating_post.repository.Model.Model.Model;
 import com.dima.inrating_post.repository.Model.PostModel.Post;
 
 import java.io.IOException;
@@ -16,7 +17,9 @@ public class RetroNetwork {
     private OkHttpClient client;
     private Retrofit retrofit;
     private Inrating_Api inrating_api;
+
     private String BASE_URL = "https://api.inrating.top/v1/";
+
     private static String token = "\n" +
             "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmNGU5ZDA1MzU3MDI3MmFlMGZhZTMzM2Y4ZTY4" +
             "ZWVlMWNiMzc0NmM0Mjg5NzI0ZTExNzJjM2Q4ODYzNDNkNDkyY2ZjZjI4Njg0NzQ0MGEwIn0.eyJhdWQiOiIy" +
@@ -42,7 +45,7 @@ public class RetroNetwork {
             @Override
             public okhttp3.Response intercept(Chain chain) throws IOException {
                 Request newRequest  = chain.request().newBuilder()
-                        .addHeader("Authorization", "Bearer " + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmNGU5ZDA1MzU3MDI3MmFlMGZhZTMzM2Y4ZTY4ZWVlMWNiMzc0NmM0Mjg5NzI0ZTExNzJjM2Q4ODYzNDNkNDkyY2ZjZjI4Njg0NzQ0MGEwIn0.eyJhdWQiOiIyIiwianRpIjoiMmY0ZTlkMDUzNTcwMjcyYWUwZmFlMzMzZjhlNjhlZWUxY2IzNzQ2YzQyODk3MjRlMTE3MmMzZDg4NjM0M2Q0OTJjZmNmMjg2ODQ3NDQwYTAiLCJpYXQiOjE1MzY4MzE4ODcsIm5iZiI6MTUzNjgzMTg4NywiZXhwIjoxNTY4MzY3ODg3LCJzdWIiOiIzOCIsInNjb3BlcyI6W119.dRitRnoqNFS3xUgtLdLiDjDVVe7ZFNrh24Qm2ML9m-V7kZpgQgajArYoS44kMa1dz_MHUhq3pqk8SnAYIsULgfrOvewTUzmH1C92-yL64Uqnv7lqWizldX2fbJ2IbB8khOCtQ-CCNA_fGY_zEBJXLsOqr4Z00tbZE6fa0PX4Mu0SsuUakLeygXbXnKOmFyZmLJZWoXKpbqiSBU239nrcyqJftBon8DL1BAUuFiadap-gpVSXj8h6BX-FsJx5cgPHFiijIalcEgzOq4VCMkwbQE8xbTsmmxkZUOnM7oKab5inzl8EV5iUgcExeSbHT6k_phOkA7XUaR6PhVoKrSQTPcfdijhME1IHfPVDPGO0vhd6hKszRrhjEPEpoothBoB8ss0lmuCFURdxFv17q97rfpDn1OfO_Y3wYuRW2lqFAnw7sLd92CHjfONwQKswLDzwE4hiQhB8iS_UEbuL_UamNOiCLfjNnVWbVc9BvoReEa8jG4coc0Kv9VNJVWh3D_hGf8dLRZBd1a7zB6-nSpKGf0eAzB0_rBXsyBepjudC-5EFDjloJOxy1Mdruoq6mQa_tFcO99JRteUSd0CXHZO-CN4Bp4xND9kstdutjBn2UWT5xhNq_QRBmBsBDAwp647dUCyQofutN9GUlu2LxmhL0ojydazdND_d9rHtY9t-ndw")
+                        .addHeader("Authorization", "Bearer " + token)
                         .build();
                 return chain.proceed(newRequest);
             }
@@ -63,19 +66,19 @@ public class RetroNetwork {
         return inrating_api.getPost(slug);
     }
 
-    public Call<Post> getLikers(String id){
+    public Call<Model> getLikers(String id){
         return inrating_api.getLikers(id);
     }
 
-    public Call<Post> getReposters(String id){
+    public Call<Model> getReposters(String id){
         return inrating_api.getReposters(id);
     }
 
-    public Call<Post> getCommentators(String id){
+    public Call<Model> getCommentators(String id){
         return inrating_api.getCommentators(id);
     }
 
-    public Call<Post> getMentions(String id){
+    public Call<Model> getMentions(String id){
         return inrating_api.getMentions(id);
     }
 
